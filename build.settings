@@ -1,0 +1,43 @@
+-- build.settings for project: Jewel Mine
+-- Managed with http://CoronaProjectManager.com
+-- Copyright 2014 Paul Graham. All Rights Reserved.
+
+settings = {
+	plugins =
+    {
+        ["plugin.google.play.services"] =
+        {
+            publisherId = "com.coronalabs"
+        },
+    }, 
+	orientation={
+		default="portrait",
+		supported = {"portrait"},
+	},
+	iphone =
+	{
+		plist=
+		{
+			--UIStatusBarHidden=true,
+		},
+	},
+}
+
+androidPermissions =
+{
+	"android.permission.INTERNET",
+	"android.permission.ACCESS_WIFI_STATE",
+	"android.permission.READ_PHONE_STATE",
+	"android.permission.ACCESS_NETWORK_STATE",
+}
+
+iphone=
+{
+	plist=
+	{
+		NSAppTransportSecurity=
+		{
+			NSAllowsArbitraryLoads=true
+		},
+	},
+}
