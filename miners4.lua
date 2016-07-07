@@ -66,12 +66,15 @@ function scene:create ( event )
 	newRail.anchorY=0
 	newRail.y=h-12
 
+	--the cart image
 	local cart = display.newImage(gameGroup,"Cart.png")
 	cart.x = -200
 	cart.y = h-108
 	physics.addBody (cart, physicsData:get("Cart"))
 	cart.isFixedRotation = true
 	cart.myName = "mine_cart"
+
+	--pause button (top right)
 	local pauseButton=display.newImage(gameGroup,"pause.png")
 	pauseButton.y = 50
 	pauseButton.x = w - 50

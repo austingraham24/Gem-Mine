@@ -35,7 +35,8 @@ function scene:create ( event )
 	local gemTable = {}
 	local numGems = 0
 
-	--used to calculate the destinations of all transistion.to methods on objects falling so it is in one place.
+	--used to calculate the destinations of all transistion.to methods on objects falling 
+	--so it is in one place.
 	local fallingObjectDestinationPoint = 1.5*h
 
 	local maxShotAge = 1000
@@ -43,7 +44,6 @@ function scene:create ( event )
 	local died=false
 	
 	--Game Images (background, objects, etc)
-	--local bg = display.newImage(gameGroup,"rockwall2.jpg")
 	local darkness = display.newImage(gameGroup,"images/darkness.png")
 	darkness.x = w/2
 	darkness.y = h/2
@@ -56,23 +56,27 @@ function scene:create ( event )
 	bg:toBack()
 	bg:scale(1.5,1.5) -- for Mac versions only
 
+	--the rail at the bottom of the screen
 	local newRail=display.newImage(gameGroup,"images/newTrack.png")
 	newRail.x=w/2
 	newRail.anchorY=0
 	newRail.y=h-12
 
+	--the cart image
 	local cart = display.newImage(gameGroup,"Cart.png")
 	cart.x = -200
 	cart.y = h-108
 	physics.addBody (cart, physicsData:get("Cart"))
 	cart.isFixedRotation = true
 	cart.myName = "mine_cart"
+
+	--pause button (top right)
 	local pauseButton=display.newImage(gameGroup,"pause.png")
 	pauseButton.y = 50
 	pauseButton.x = w - 50
 	pauseButton.alpha=0
 
-
+	--window shown at the beginning of each level with the goal
 	local goal=display.newImage(gameGroup,"pointGoal.png")
 	goal.x = w/2
 	goal.y = h/2 - 150
@@ -90,17 +94,19 @@ function scene:create ( event )
 	local better = display.newImage(endGroup,"finalText.png")
 	better.x = w/2
 	better.y = 200
-	--better:scale(.6,.6)
 	better.alpha = 0
+
 	local broken = display.newImage(endGroup,"broken.png")
 	broken.x = w/2
 	broken.y = h/2-130
 	broken.alpha = 0
+
 	local menu = display.newImage(endGroup,"menu.png")
 	menu.y = -200
 	menu.x =-200
 	menu.alpha = 0
 	menu:scale(.8,.8)
+
 	local continue= display.newImage(endGroup,"continue.png")
 	continue.y = -200
 	continue.x =-200
@@ -129,6 +135,7 @@ function scene:create ( event )
 	cavernProgress.x = w/2
 	cavernProgress.y = cavernNumber.y + 100
 
+	-- temp image as placeholder to determine add placement
 	-- local tempAd = display.newImage(pauseGroup,"bannerTest.jpg")
 	-- --tempAd.alpha=0
 	-- tempAd.anchorX=0
