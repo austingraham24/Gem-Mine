@@ -52,13 +52,14 @@ function scene:create ( event )
 	local darkness = display.newImage(gameGroup,"images/darkness.png")
 	darkness.x = w/2
 	darkness.y = h/2
+	darkness:scale(1.5,1.5) -- for Mac versions only
 
 	local bg = display.newImage(gameGroup,"images/rockBackground.jpg")
 	bg.x = w/2
 	bg.y = h/2--h-bg.height/2
 	bg.rotation=180
 	bg:toBack()
-	--bg:scale(.4,.4)
+	bg:scale(1.5,1.5) -- for Mac versions only
 
 	local newRail=display.newImage(gameGroup,"images/newTrack.png")
 	newRail.x=w/2
