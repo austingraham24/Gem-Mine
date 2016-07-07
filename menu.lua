@@ -119,7 +119,7 @@ function scene:create ( event )
 	
 	--adds listeners and starts dynamic menu
 	function activate()
-		play_button:addEventListener("tap", end_menu)
+		play_button:addEventListener("tap", go_play)
 		about:addEventListener("tap", go_about)
 		levels:addEventListener("tap", go_levels)
 		helpIcon:addEventListener("tap", enterHelp)
@@ -129,7 +129,7 @@ function scene:create ( event )
 
 	--help functions
 	function enterHelp()
-		play_button:removeEventListener("tap", end_menu)
+		play_button:removeEventListener("tap", go_play)
 		about:removeEventListener("tap", go_about)
 		levels:removeEventListener("tap", go_levels)
 		helpGroup:toFront()
@@ -226,7 +226,7 @@ function scene:create ( event )
 	
 	--the actual function to change the scenes based on the previous three functions.
 	function change_scene()
-		play_button:removeEventListener("tap", end_menu)
+		play_button:removeEventListener("tap", go_play)
 		about:removeEventListener("tap", go_about)
 		levels:removeEventListener("tap", go_levels)
 		--transition.to(play_end,{time = 500, alpha = 0})
