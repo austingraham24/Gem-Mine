@@ -32,7 +32,7 @@ function scene:create ( event )
 	bg.y = h/2--h-bg.height/2
 	bg.rotation=180
 	bg:toBack()
-	bg:scale(1.5,1.5)
+	bg:scale(1.5,1.5) -- Mac only
 	
 	logo = display.newImage(menu_group,"logo3.png")
 	logo.x = w/2
@@ -50,19 +50,24 @@ function scene:create ( event )
 	cart2.y = h-108
 	cart.x = -(cart.width)
 	cart2.x =w+cart.width 
+	
+	--the three main buttons
 	local play_button = display.newImage(menu_group,"play.png")
 	play_button.x = w/2
 	play_button.y = h/2+130
 	play_button:scale(.8,.8)
+	
 	local about = display.newImage(menu_group,"about.png")
 	about.x = w/5
 	about.y = h/2+180
 	about:scale(.75,.75)
+	
 	local levels = display.newImage(menu_group,"levels.png")
 	levels.x = w*4/5
 	levels.y = h/2+180
 	levels:scale(.75,.75)
-	--settings:scale(.8,.8)
+	
+	--old credits
 	--local auth =  display.newText(menu_group,"By Austin Graham and Katey Bluel", 0, 0, nil, 36)
 	--auth.x = w/2
 	--auth.y = h - 50
@@ -81,8 +86,8 @@ function scene:create ( event )
 	confirm.x = w/2
 	confirm.y = (h/2)+(instructions.height/2)+5
 
-	
-	freeze = ""--audio.loadSound("sounds/background_frozen.mp3")
+	--background game audio
+	bkgAudio = ""--audio.loadSound("sounds/background_frozen.mp3")
 	local roll = audio.loadSound("sounds/roll.mp3")
 	--audio.setVolume( 1)
 	if mute==false then
@@ -93,7 +98,7 @@ function scene:create ( event )
 		if (audio.getVolume({channel=3})==.3)then
 			audio.fade( { channel=3, time=3000, volume=1 } )
 		elseif (audio.getVolume({channel=3})==1)then
-			--background = audio.play(freeze,{ channel=3, loops=-1, fadein=3000 })
+			--background = audio.play(bkgAudio,{ channel=3, loops=-1, fadein=3000 })
 		else
 			audio.fade( { channel=3, time=3000, volume=1 } )
 		end
@@ -135,7 +140,7 @@ function scene:create ( event )
 	function leaveHelp()
 		transition.to(helpGroup,{time=500,alpha=0})
 		transition.to(helpIcon,{time=500,alpha=1})
-		play_button:addEventListener("tap", end_menu)
+		play_button:addEventListener("tap", go_play)
 		about:addEventListener("tap", go_about)
 		levels:addEventListener("tap", go_levels)
 	end
@@ -164,9 +169,9 @@ function scene:create ( event )
 
 	
 	--default starts the player on level 1
-	function end_menu()
+	function go_play()
 		menu = false
-		play_button:removeEventListener("tap", end_menu)
+		play_button:removeEventListener("tap", go_play)
 		next_scene = "miners"
 		play_end = display.newImage(menu_group,"play_active.png")
 		play_end.x = w/2
