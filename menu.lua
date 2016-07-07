@@ -32,7 +32,7 @@ function scene:create ( event )
 	bg.y = h/2--h-bg.height/2
 	bg.rotation=180
 	bg:toBack()
-	--bg:scale(.4,.4)
+	bg:scale(1.5,1.5)
 	
 	logo = display.newImage(menu_group,"logo3.png")
 	logo.x = w/2

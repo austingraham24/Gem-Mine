@@ -26,11 +26,13 @@ function scene:create ( event )
 	local darkness = display.newImage(about_group,"cover.png")
 	darkness.x = w/2
 	darkness.y = h/2
+	darkness:scale(1.5,1.5)
 
 	local bg = display.newImage(about_group,"images/rockBackground.jpg")
 	bg.x = w/2
 	bg.y = h/2--h-bg.height/2
 	bg.rotation=180
+	bg:scale(1.5,1.5)
 	bg:toBack()
 
 	-- local bannerTest= display.newImage(about_group,"images/bannerTestSmall.jpg")
