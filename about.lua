@@ -195,9 +195,9 @@ function scene:create ( event )
 	
 	local function activate()
 		--menu:addEventListener("tap", go_menu)
-		if _G.adsAvailable then
+		--[[if _G.adsAvailable then
 			_G.showAd("banner",0,h-60)
-		end
+		end]]
 		timer.performWithDelay ( 500, load_display)
 		composer.removeHidden()
 	end

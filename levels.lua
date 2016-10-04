@@ -1,11 +1,11 @@
 --
--- Project: Jewel Mine
+-- Project: Gem Mine
 -- Description: 
 --
 -- Version: 1.0
 -- Managed with http://CoronaProjectManager.com
 --
--- Copyright 2015 Austin Graham. All Rights Reserved.
+-- Copyright 2016 Austin Graham. All Rights Reserved.
 -- 
 
 local composer = require "composer" 
@@ -57,9 +57,9 @@ function scene:create ( event )
 	local sceneName=""
 	
 	function activate()
-		if _G.adsAvailable then
+		--[[if _G.adsAvailable then
 			_G.showAd("banner",0,h-60)
-		end
+		end]]
 		timer.performWithDelay ( 500, roll1)
 		composer.removeHidden()
 	end

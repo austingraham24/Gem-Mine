@@ -14,10 +14,10 @@ w = display.contentWidth
 h = display.contentHeight
 print(w,h)
 
-_G.ads = require "ads"
-_G.showAd=""
-_G.adsAvailable=""
-_G.hideAd=""
+--_G.ads = require "ads"
+--_G.showAd=""
+--_G.adsAvailable=""
+--_G.hideAd=""
 
 --bg = display.newImage("rockwall2.jpg")
 --bg.x = w/2
@@ -26,7 +26,7 @@ score =0
 mute=false
 
 --setting up ads
-adListener=function(event)
+--[[adListener=function(event)
 	if event.isError then
 		print("Error Loading Ad")
 		adsAvailable=0
@@ -49,7 +49,7 @@ hideAd=function()
 end
 
 showAd() --preload an ad
-hideAd()
+hideAd()]]--
 
 --handling splash screen and going to menu
 function main()
