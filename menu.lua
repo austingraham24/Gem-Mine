@@ -87,7 +87,7 @@ function scene:create ( event )
 	confirm.y = (h/2)+(instructions.height/2)+5
 
 	--background game audio
-	bkgAudio = ""--audio.loadSound("sounds/background_frozen.mp3")
+	bkgAudio = audio.loadSound("sounds/Mine-Theme.mp3")
 	local roll = audio.loadSound("sounds/roll.mp3")
 	--audio.setVolume( 1)
 	if mute==false then
@@ -98,7 +98,7 @@ function scene:create ( event )
 		if (audio.getVolume({channel=3})==.3)then
 			audio.fade( { channel=3, time=3000, volume=1 } )
 		elseif (audio.getVolume({channel=3})==1)then
-			--background = audio.play(bkgAudio,{ channel=3, loops=-1, fadein=3000 })
+			background = audio.play(bkgAudio,{ channel=3, loops=-1, fadein=3000 })
 		else
 			audio.fade( { channel=3, time=3000, volume=1 } )
 		end
