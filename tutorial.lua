@@ -76,7 +76,7 @@ local create = function (group)
 	pauseButton.alpha=0
 
 
-	local introPopUp=display.newImage(gameGroup,"tutorialIntro.png")
+	local introPopUp=display.newImage(gameGroup,"images/tutorialIntro.png")
 	introPopUp.x = w/2
 	introPopUp.y = h/2 - 150
 	introPopUp.alpha=0
