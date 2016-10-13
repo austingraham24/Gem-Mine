@@ -125,25 +125,25 @@ function scene:create ( event )
 	--All images relating to the pause menu
 	local pauseGroup=display.newGroup()
 	pauseGroup.alpha=0
-	local pauseMenu = display.newImage(pauseGroup,"pause_menu.png")
+	local pauseMenu = display.newImage(pauseGroup,"images/new_pause_menu.png")
 	pauseMenu.x = w/2
 	pauseMenu.y= h/2
 	--pauseMenu.alpha=0
 	local resumeButton = display.newImage(pauseGroup, "resumeGame.png")
 	resumeButton.x = w/2
-	resumeButton.y = pauseMenu.y+250
+	resumeButton.y = pauseMenu.y+50
 	local quitButton = display.newImage(pauseGroup, "quitGame.png")
 	quitButton.x = w/2
-	quitButton.y = pauseMenu.y+375
+	quitButton.y = pauseMenu.y+175
 	local cavernNumber=display.newImage(pauseGroup, "cavernNumber.png")
 	cavernNumber.x = w/2 - 25
 	cavernNumber.y = h/2 - ((pauseMenu.height/2)-180)
 	local cavernNum=display.newImage(pauseGroup, "numbers/2.png")
 	cavernNum.x=w/2+(cavernNumber.width/2.3 - 25)
 	cavernNum.y = cavernNumber.y
-	local cavernProgress=display.newImage(pauseGroup, "cavernProgress.png")
+	--[[local cavernProgress=display.newImage(pauseGroup, "cavernProgress.png")
 	cavernProgress.x = w/2
-	cavernProgress.y = cavernNumber.y + 100
+	cavernProgress.y = cavernNumber.y + 100]]--
 
 	--Game Audio
 	local swoosh = audio.loadSound("sounds/swoosh.mp3")

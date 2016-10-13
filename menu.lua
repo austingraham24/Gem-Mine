@@ -235,7 +235,7 @@ function scene:create ( event )
 		elseif (next_scene =="levels")then
 			composer.gotoScene("levels","fade",1000)
 		elseif (next_scene =="miners")then
-			composer.gotoScene("tutorial","crossFade",1000)
+			composer.gotoScene("miners1","crossFade",1000)
 		end
 	end
 	
