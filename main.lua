@@ -14,16 +14,30 @@ w = display.contentWidth
 h = display.contentHeight
 print(w,h)
 
+score =0
+mute=false
+
 --_G.ads = require "ads"
 --_G.showAd=""
 --_G.adsAvailable=""
 --_G.hideAd=""
 
---bg = display.newImage("rockwall2.jpg")
---bg.x = w/2
---bg.y = h-bg.height/2
-score =0
-mute=false
+_G.coronaAds = require( "plugin.coronaAds" )
+_G.bannerPlacement = "bottom-banner-320x50"
+_G.interstitialPlacement = "interstitial-1"
+_G.adListener=""
+
+_G.adListener = function( event )
+
+         -- Successful initialization of Corona Ads
+         if ( event.phase == "init" ) then
+           -- Show an ad
+           coronaAds.show( bannerPlacement, false )
+           --coronaAds.show( interstitialPlacement, true ) -- second arg i for y/n button
+         end
+     end
+
+_G.coronaAds.init( "cf57ca56-eb84-4877-9a7e-133d1c1f51dd", _G.adListener )
 
 --setting up ads
 --[[adListener=function(event)

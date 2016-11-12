@@ -1,63 +1,78 @@
 -- build.settings for project: Jewel Mine
 -- Managed with http://CoronaProjectManager.com
--- Copyright 2014 Paul Graham. All Rights Reserved.
-
-settings = {
-	plugins =
-    {
+-- Copyright 2016 Austin Graham. All Rights Reserved.
+  settings =
+  {
+    orientation={
+        default="portrait",
+        supported = {"portrait"},
+    },
+    plugins =
+      {
         ["plugin.google.play.services"] =
         {
-            publisherId = "com.coronalabs"
+          publisherId = "com.coronalabs",
+          supportedPlatforms = { android=true }
         },
-    }, 
-	orientation={
-		default="portrait",
-		supported = {"portrait"},
-	},
-	iphone =
-	{
-		plist=
-		{
-			--UIStatusBarHidden=true,
-			-- Icon image files table
-            CFBundleIconFiles = {
-                "Icon.png",
-                "Icon@2x.png",
-                "Icon-60.png",
-                "Icon-60@2x.png",
-                "Icon-60@3x.png",
-                "Icon-72.png",
-                "Icon-72@2x.png",
-                "Icon-76.png",
-                "Icon-76@2x.png",
-                "Icon-167.png",
-                "Icon-Small-40.png",
-                "Icon-Small-40@2x.png",
-                "Icon-Small-50.png",
-                "Icon-Small-50@2x.png",
-                "Icon-Small.png",
-                "Icon-Small@2x.png",
-                "Icon-Small@3x.png"
-                },
-		},
-	},
-}
+        ["shared.android.support.v4"] =
+        {
+          publisherId = "com.coronalabs",
+          supportedPlatforms = { android=true }
+        },
+        ["plugin.coronaAds"] =
+        {
+          publisherId = "com.coronalabs",
+          supportedPlatforms = { android=true, ["amazon-kindle"]=true, iphone=true }
+        },
+        ["plugin.chartboost"] =
+        {
+          publisherId = "com.coronalabs",
+          supportedPlatforms = { android=true, ["amazon-kindle"]=true, iphone=true }
+        },
+        ["plugin.adcolony"] =
+        {
+          publisherId = "com.coronalabs",
+          supportedPlatforms = { android=true, ["amazon-kindle"]=true, iphone=true }
+        }
+    },
+    -- If building for iOS, add these three entries to the "plist" table
+    iphone =
+    {
+      plist =
+      {
+        NSAppTransportSecurity = { NSAllowsArbitraryLoads=true },
+        NSLocationAlwaysUsageDescription = { "" },
+        NSLocationWhenInUseUsageDescription = { "" },
 
-androidPermissions =
-{
-	"android.permission.INTERNET",
-	"android.permission.ACCESS_WIFI_STATE",
-	"android.permission.READ_PHONE_STATE",
-	"android.permission.ACCESS_NETWORK_STATE",
-}
+        --UIStatusBarHidden=true,
+        -- Icon image files table
+        CFBundleIconFiles = {
+            "Icon.png",
+            "Icon@2x.png",
+            "Icon-60.png",
+            "Icon-60@2x.png",
+            "Icon-60@3x.png",
+            "Icon-72.png",
+            "Icon-72@2x.png",
+            "Icon-76.png",
+            "Icon-76@2x.png",
+            "Icon-167.png",
+            "Icon-Small-40.png",
+            "Icon-Small-40@2x.png",
+            "Icon-Small-50.png",
+            "Icon-Small-50@2x.png",
+            "Icon-Small.png",
+            "Icon-Small@2x.png",
+            "Icon-Small@3x.png"
+            },
+      },
+    },
 
-iphone=
-{
-	plist=
-	{
-		NSAppTransportSecurity=
-		{
-			NSAllowsArbitraryLoads=true
-		},
-	},
-}
+    androidPermissions =
+    {
+        "android.permission.INTERNET",
+        "android.permission.ACCESS_WIFI_STATE",
+        "android.permission.READ_PHONE_STATE",
+        "android.permission.ACCESS_NETWORK_STATE",
+    },
+  }
